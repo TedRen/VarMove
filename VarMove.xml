@@ -1,1 +1,114 @@
-<xml xmlns="http://www.w3.org/1999/xhtml"></xml>
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" id="10" inline="true" x="312" y="29">
+    <field name="VAR">stepCount</field>
+    <value name="VALUE">
+      <block type="math_number" id="17">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <next>
+      <block type="controls_whileUntil" id="24" inline="false">
+        <field name="MODE">UNTIL</field>
+        <value name="NUMBER">
+          <block type="logic_compare" id="104" inline="true">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="sensor_object" id="77">
+                <field name="OBJECT">LEFTFRONT</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="117">
+                <field name="NUM">70</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="movement_forward" id="127">
+            <next>
+              <block type="robot_delay" id="143" inline="true">
+                <value name="DELAY">
+                  <block type="math_number" id="144">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="movement_stop" id="155">
+                    <next>
+                      <block type="robot_delay" id="156" inline="true">
+                        <value name="DELAY">
+                          <block type="math_number" id="157">
+                            <field name="NUM">100</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="158" inline="true">
+                            <field name="VAR">stepCount</field>
+                            <value name="VALUE">
+                              <block type="math_arithmetic" id="180" inline="true">
+                                <field name="OP">ADD</field>
+                                <value name="A">
+                                  <block type="variables_get" id="192">
+                                    <field name="VAR">stepCount</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="181">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_repeat" id="206" inline="true">
+            <value name="TIMES">
+              <block type="variables_get" id="224">
+                <field name="VAR">stepCount</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="movement_reverse" id="234">
+                <next>
+                  <block type="robot_delay" id="251" inline="true">
+                    <value name="DELAY">
+                      <block type="math_number" id="258">
+                        <field name="NUM">100</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="movement_stop" id="270">
+                        <next>
+                          <block type="robot_delay" id="259" inline="true">
+                            <value name="DELAY">
+                              <block type="math_number" id="260">
+                                <field name="NUM">100</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="movement_stop" id="271"></block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
